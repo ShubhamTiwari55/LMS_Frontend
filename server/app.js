@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const userRoutes = require('./routes/user.router');
+const errorMiddleware = require('./middleware/error.middleware');
 const app = express();
 
 app.use(express.json());
@@ -17,6 +19,10 @@ app.use(cors(corsOptions));
 app.use('/ping', (req, res) => {
   res.send('pong');
 });
+
+app.use('/api/v1/user', userRoutes);
+
+app.use(errorMiddleware);
 
 app.all('*', (req, res) => {
   res.status(404).send('OOPS! 404 not found!');
