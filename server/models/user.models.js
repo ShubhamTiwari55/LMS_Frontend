@@ -39,4 +39,7 @@ const userSchema = new Schema({
     forgotPasswordExpiry: Date
 },{
     timestamps: true
-})
+});
+
+const User = model('User', userSchema);
+module.exports = User;
