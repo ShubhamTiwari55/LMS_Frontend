@@ -3,6 +3,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const userRoutes = require('./routes/user.router');
 const errorMiddleware = require('./middleware/error.middleware');
+const morgan = require('morgan');
 const app = express();
 
 app.use(express.json());
@@ -13,6 +14,8 @@ const corsOptions = {
   credentials: true,
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 };
+
+app.use(morgan('dev'));
 
 app.use(cors(corsOptions));
 
