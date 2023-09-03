@@ -1,5 +1,5 @@
-const { TokenExpiredError } = require("jsonwebtoken");
-const { default: AppError } = require("../utils/appError");
+// import { TokenExpiredError } from "jsonwebtoken";
+import AppError from "../utils/AppError.js";
 
 const isLoggedIn = function(req, res, next){
     const {token} = req.cookies;
@@ -18,6 +18,4 @@ const isLoggedIn = function(req, res, next){
     next();
 }
 
-module.exports = {
-    isLoggedIn
-}
+export default isLoggedIn;
