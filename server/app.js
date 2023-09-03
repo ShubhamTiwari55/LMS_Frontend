@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 import userRoutes from './routes/user.router.js';
 import errorMiddleware from './middleware/error.middleware.js';
 import morgan from 'morgan';
+import cloudinary from 'cloudinary';
 const app = express();
 
 app.use(express.json());

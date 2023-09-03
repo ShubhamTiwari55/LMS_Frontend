@@ -1,6 +1,8 @@
-import {Schema, model} from 'mongoose';
+import { Schema, model } from 'mongoose';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import crypto from 'crypto';
+
 const userSchema = new Schema({
     fullName: {
         type: String,
@@ -19,50 +21,59 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: [true, "Password is required"],
-        unique: [true, "password must be unique"],
         minLength: [8, "Password must be 8 chars long"],
         select: false
     },
-    role:{
+    role: {
         type: String,
         enum: ['USER', 'ADMIN'],
-        defualt: 'USER'
+        default: 'USER'
     },
-    avatar:{
-        public_id:{
+    avatar: {
+        public_id: {
             type: String
         },
-        secure_url:{
+        secure_url: {
             type: String
         }
     },
     forgotPasswordToken: String,
     forgotPasswordExpiry: Date
-},{
+}, {
     timestamps: true
 });
 
-userSchema.pre('save', async function(){
-    if(!this.isModified('password')){
+userSchema.pre('save', async function (next) { // Pass 'next' to handle errors
+    if (!this.isModified('password')) {
         return next();
     }
     this.password = await bcrypt.hash(this.password, 10);
 });
 
 userSchema.methods = {
-    comparePassword : async function(plainTextPassword){
+    comparePassword: async function (plainTextPassword) {
         return await bcrypt.compare(plainTextPassword, this.password);
     },
-    generateJWTToken: function(){
-        return JsonWebTokenError.sign(
-            {id: this._id, role: this.role, email: this.email, subscription: this.subscription},
+    generateJWTToken: function() {
+        return jwt.sign(
+            { id: this._id, role: this.role, email: this.email, subscription: this.subscription},
             process.env.JWT_SECRET,
             {
-                expiresIn: process.env.JWT_EXPIRY
+                expiresIn: '1d'
             }
         )
+    },
+
+    generatePassToken: async function(){
+        const resetToken = crypto.randomBytes(20).toString('hex');
+
+        this.forgotPasswordToken = crypto.createHash('sha256').update(resetToken).digest('hex');
+        this.forgotPasswordExpiry = Date.now() + 15*60*1000;  //15 mins from now
+
+        return resetToken;
     }
-}
+
+};
 
 const User = model('User', userSchema);
 export default User;
