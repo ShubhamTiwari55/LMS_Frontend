@@ -38,7 +38,11 @@ const userSchema = new Schema({
         }
     },
     forgotPasswordToken: String,
-    forgotPasswordExpiry: Date
+    forgotPasswordExpiry: Date,
+    subscription: {
+        type: String,
+        status: String
+    }
 }, {
     timestamps: true
 });
