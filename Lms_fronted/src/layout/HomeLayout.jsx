@@ -7,7 +7,12 @@ function HomeLayout({children}){
 
     function changeWidth(){
         const drawerSide = document.getElementsByClassName("drawer-side");
-        drawerSide[0].style.width = 0;
+        drawerSide[0].style.width = 'auto';
+    }
+
+    function hideDrawer(){
+        const element = document.getElementsByClassName("drawer-toggle");
+        element[0].checked = false;
     }
 
     return(
@@ -29,7 +34,7 @@ function HomeLayout({children}){
                 </label>
                 <ul className="menu p-4 w-48 sm:w-8- bg-base-100 text-base-content relative">
                     <li className="w-fit absolute right-2 z-50">
-                        <button>    
+                        <button onClick={hideDrawer}>    
                             <AiFillCloseCircle size={24}/>      
                         </button>
                         </li>
