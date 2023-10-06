@@ -2,6 +2,7 @@ import './App.css'
 
 import { Route,Routes } from 'react-router-dom';
 
+import CourseDesc from './Course/CourseDesc';
 import CourseList from './Course/CourseList';
 import AboutUs from './Pages/AboutUs';
 import ContactUs from './Pages/Contact';
@@ -19,6 +20,7 @@ function App() {
       <Route path="/signup" element={<SignUp/>}></Route>
       <Route path="/login" element={<Login/>}></Route>
       <Route path="/courses" element={<CourseList/>}></Route>
+      <Route path="/course/description" element={<CourseDesc/>}></Route>
       <Route path="/contact" element={<ContactUs/>}></Route>
       <Route path="/denied" element={<Denied/>}></Route>
       <Route path="*" element={<NotFound/>}></Route>
