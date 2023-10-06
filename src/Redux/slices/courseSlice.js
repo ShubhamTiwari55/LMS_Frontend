@@ -1,10 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
 
+import { Courses } from "../../constants/courses";
 import axiosInstance from "../../Helpers/axiosInstance";
 
 const initialState = {
-    courseData: []
+    courseData: [...Courses]
 }
 
 export const getAllCourses = createAsyncThunk("/course/get", async() =>{
