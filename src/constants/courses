@@ -1,0 +1,11 @@
+export const Courses = [
+    {
+        thumbnail: "https://www.achieversit.com/uploads/course_image/web-dev-img.jpeg",
+        title: "Web development",
+        description: "This course covers a wide range of web dev tech stack including MERN stack which is highly useful for developing beautiful and responsibe websites",
+        category: "Development",
+        numberOfLectures: 150,
+        createdBy: "Shubham Tiwari"
+    
+    }
+]
