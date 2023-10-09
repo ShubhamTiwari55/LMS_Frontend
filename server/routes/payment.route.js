@@ -1,38 +1,25 @@
-import {Router} from 'express';
-import { isLoggedIn,authorizedRoles } from '../middleware/auth.middleware.js';
+import { Router } from 'express';
 import {
-    getRazorpayApiKey,
-    buySubscription,
-    verifySubscription,
-    cancelSubscription,
-    getAllPayments
-} from '../controllers/payment.controller.js'
+  getRazorpayApiKey,
+  buySubscription,
+  verifySubscription,
+  cancelSubscription,
+  allPayments,
+} from '../controllers/payment.controller.js';
+import {
+  authorizeRoles,
+  authorizeSubscribers,
+  isLoggedIn,
+} from '../controllers/middleware/auth.middleware.js';
+
 const router = Router();
 
+router.route('/subscribe').post(isLoggedIn, buySubscription);
+router.route('/verify').post(isLoggedIn, verifySubscription);
 router
-    .route('/razorpay-key')
-    .get(isLoggedIn,
-        getRazorpayApiKey);
-
-router
-    .route('/subscribe')
-    .post(isLoggedIn,
-        buySubscription);
-
-router
-    .route('/verify')
-    .post(isLoggedIn,
-        verifySubscription);
-
-router
-    .route('/unsubscribe')
-    .post(isLoggedIn,
-        cancelSubscription);
-
-router
-    .route('/')
-    .get(isLoggedIn,
-        authorizedRoles('ADMIN'),
-        getAllPayments);
+  .route('/unsubscribe')
+  .post(isLoggedIn, authorizeSubscribers, cancelSubscription);
+router.route('/razorpay-key').get(isLoggedIn, getRazorpayApiKey);
+router.route('/').get(isLoggedIn, authorizeRoles('ADMIN'), allPayments);
 
 export default router;
