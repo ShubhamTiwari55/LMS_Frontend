@@ -37,7 +37,7 @@ Razorpay API keys for payment processing (get them from the Razorpay dashboard).
 
 ### Installation
 1. Clone the repository
-git clone [https://github.com/your/repository.git](https://github.com/ShubhamTiwari55/LMS_FullStack.git)
+git clone https://github.com/ShubhamTiwari55/LMS_FullStack.git
 
 2. Navigate to the project directory
 cd your-project-directory
@@ -57,7 +57,7 @@ RAZORPAY_KEY_ID=your_razorpay_key_id
 RAZORPAY_KEY_SECRET=your_razorpay_key_secret
 
 6. Start the server:
-npm start
+npm run dev
 
 7. Start the client
 cd ../client
