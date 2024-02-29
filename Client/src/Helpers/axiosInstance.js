@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5014/api/v1";
+const BASE_URL = "https://lms-full-stack-783y.vercel.app/";
 
 const axiosInstance = axios.create();
 axiosInstance.defaults.baseURL = BASE_URL;
