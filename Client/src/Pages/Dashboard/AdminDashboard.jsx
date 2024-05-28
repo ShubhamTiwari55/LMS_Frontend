@@ -31,9 +31,9 @@ function AdminDashboard() {
             {
                 label: "User Details",
                 data: [allUsersCount, subscribedCount],
-                backgroundColor: ["yellow", "green"],
+                backgroundColor: ["gray", "green"],
                 borderWidth: 1,
-                borderColor: ["yellow","green"]
+                borderColor: ["gray","green"]
             },
         ]
     };
@@ -79,7 +79,7 @@ function AdminDashboard() {
     return (
         <HomeLayout>
             <div className="min-h-[90vh] pt-5 flex flex-col flex-wrap gap-10 text-white">
-                <h1 className="text-center text-5xl font-semibold text-yellow-500">
+                <h1 className="text-center text-5xl font-semibold text-font-color">
                     Admin Dashboard
                 </h1>
 
@@ -95,7 +95,7 @@ function AdminDashboard() {
                                     <p className="font-semibold">Registered Users</p>
                                     <h3 className="text-4xl font-bold">{allUsersCount}</h3>
                                 </div>
-                                <FaUsers className="text-yellow-500 text-5xl"/>
+                                <FaUsers className="text-button-color text-5xl"/>
                             </div>
                             <div className="flex items-center justify-between p-5 gap-5 rounded-md shadow-md">
                                 <div className="flex flex-col items-center">
@@ -141,7 +141,7 @@ function AdminDashboard() {
                             onClick={() => {
                                 navigate("/course/create")
                             }}
-                            className="w-fit bg-yellow-500 hover:bg-yellow-600 transition-all ease-in-out duration-300 rounded py-2 px-4 font-semibold text-lg cursor-pointer"
+                            className="w-fit bg-button-color hover:bg-font-color transition-all ease-in-out duration-300 rounded py-2 px-4 font-semibold text-lg cursor-pointer"
                         >
                             Create new course
                         </button>

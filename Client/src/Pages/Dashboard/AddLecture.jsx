@@ -67,7 +67,7 @@ function AddLecture() {
     return (
         <HomeLayout>
             <div className="min-h-[90vh] text-white flex flex-col items-center justify-center gap-10 mx-16">
-                <div className="flex flex-col gap-5 p-2 shadow-[0_0_10px_black] w-96 rounded-lg">
+                <div className="flex flex-col gap-5 p-2 w-96 rounded-lg">
                     <header className="flex items-center justify-center relative">
                         <button 
                             className="absolute left-2 text-xl text-green-500"
@@ -75,7 +75,7 @@ function AddLecture() {
                         >
                             <AiOutlineArrowLeft />
                         </button>
-                        <h1 className="text-xl text-yellow-500 font-semibold">
+                        <h1 className="text-xl text-font-color font-semibold">
                             Add new lecture
                         </h1>
                     </header>
@@ -86,17 +86,17 @@ function AddLecture() {
                         <input 
                             type="text"
                             name="title"
-                            placeholder="enter the title of the lecture"
+                            placeholder="Enter the title of the lecture"
                             onChange={handleInputChange}
-                            className="bg-transparent px-3 py-1 border"
+                            className="bg-transparent px-3 py-1 border border-blue-500 placeholder-gray-600"
                             value={userInput.title}
                         />
                         <textarea 
                             type="text"
                             name="description"
-                            placeholder="enter the description of the lecture"
+                            placeholder="Enter the description of the lecture"
                             onChange={handleInputChange}
-                            className="bg-transparent px-3 py-1 border resize-none overflow-y-scroll h-36"
+                            className="bg-transparent px-3 py-1 border resize-none h-32 border-blue-500 placeholder-gray-600"
                             value={userInput.description}
                         />
                         {userInput.videoSrc ? (
@@ -111,8 +111,8 @@ function AddLecture() {
 
                             </video>
                         ) : (
-                            <div className="h-48 border flex items-center justify-center cursor-pointer">
-                                <label className="font-semibold text-cl cursor-pointer" htmlFor="lecture">Choose your video</label>
+                            <div className="h-48 border flex items-center justify-center cursor-pointer border-blue-500 placeholder-gray-600">
+                                <label className="font-semibold text-cl cursor-pointer text-gray-600" htmlFor="lecture">Choose your video</label>
                                 <input type="file" className="hidden" id="lecture" name="lecture" onChange={handleVideo} accept="video/mp4 video/x-mp4 video/*" />
                             </div>
                         )}

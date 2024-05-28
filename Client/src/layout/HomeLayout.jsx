@@ -35,7 +35,7 @@ function HomeLayout({children}){
     }
     return(
         <>
-        <div className="min-h-[90vh] bg-[#1d232a]">
+        <div className="min-h-[100vh] bg-[#79a0c9]">
             <div className="drawer absolute left-0 z-50 w-fit ">
             <input type="checkbox" className="drawer-toggle" id="my-drawer" />
             <div className="drawer-content">
@@ -50,7 +50,7 @@ function HomeLayout({children}){
             <div className='drawer-side w-0'>
                 <label htmlFor="my-drawer" className='drawer-overlay'>   
                 </label>
-                <ul className="menu p-4 h-[100%] w-48 sm:w-8- bg-base-100 text-base-content relative">
+                <ul className="menu p-4 h-[100%] w-48 sm:w-8- bg-[#79a0c9] text-base-content relative">
                     <li className="w-fit absolute right-2 z-50">
                         <button onClick={hideDrawer}>    
                             <AiFillCloseCircle size={24}/>      

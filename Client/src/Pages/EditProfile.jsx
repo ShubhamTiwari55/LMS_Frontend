@@ -65,9 +65,9 @@ function EditProfile(){
         <HomeLayout>
             <div className="flex items-center justify-center h-[90vh]">
                 <form onSubmit={onFormSubmit}
-                className="flex flex-col justify-center gap-5 rounded-lg p-4 text-white w-80 min-h-[26rem] shadow-[0_0_10px_black]"
+                className="flex flex-col justify-center gap-5 rounded-lg p-4 text-white w-80 min-h-[26rem]"
                 >
-                    <h1 className="text-2xl font-semibold text-center">
+                    <h1 className="text-2xl font-semibold text-center text-font-color">
                         Edit profile
                     </h1>
                     <label className="cursor-pointer" htmlFor="image_uploads">
@@ -85,21 +85,21 @@ function EditProfile(){
                     />
 
                     <div className="flex flex-col gap-1">
-                        <label htmlFor="fullName" className="text-lg font-semibold">Full Name</label>
+                        <label htmlFor="fullName" className="text-md text-font-color font-semibold">Full Name</label>
                         <input type="text"
                         id="fullName"
                         name="fullName"
                         onChange={handleInputChange}
                         placeholder="Enter your name"
-                        className="bg-transparent py-2 px-1 border"
+                        className="bg-transparent py-2 px-1 border placeholder-gray-600 border-black rounded-md"
                         />
                     </div>
                     <button type="submit"
-                    className="w-full bg-yellow-600 py-2 font-semibold hover:bg-yellow-500 cursor-pointer transition-all ease-in-out duration-300 rounded-sm text-lg">
+                    className="w-full bg-button-color py-2 font-semibold hover:bg-font-color cursor-pointer transition-all ease-in-out duration-300 rounded-sm text-lg">
                         Update profile
                     </button>
                     <Link to="/user/profile">
-                        <p className="link text-accent cursor-pointer flex items-center justify-center w-full">
+                        <p className="link text-accent cursor-pointer flex items-center justify-center w-full text-black">
                             <AiOutlineArrowLeft/> Go back to profile
                         </p>
                     </Link>
