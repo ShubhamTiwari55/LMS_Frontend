@@ -69,7 +69,7 @@ function CreateCourse(){
 }
     return(
         <HomeLayout>
-        <div className="flex items-center justify-center h-[100vh]">
+        <div className="flex items-center justify-center h-[92vh]">
             <form
                 onSubmit={onFormSubmit}
                 className="flex flex-col justify-center gap-5 rounded-lg p-4 text-font-color w-[700px] my-10 relative"

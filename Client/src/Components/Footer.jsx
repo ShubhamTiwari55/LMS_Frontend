@@ -12,13 +12,13 @@ function Footer(){
                 Copyright {year} | All rights reserved
             </section>
             <section className='flex items-center justify-center gap-5 text-2xl text-white'>
-                <a className='hover:text-button-color transition-all ease-in-out duration-300 cursor-pointer'>
+                <a href='https://www.facebook.com/profile.php?id=100009801498766' className='hover:text-button-color transition-all ease-in-out duration-300 cursor-pointer'>
                     <BsFacebook/>
                 </a>
-                <a className='hover:text-button-color transition-all ease-in-out duration-300 cursor-pointer'>
+                <a href='https://www.instagram.com/shubham_tiwarii05/' className='hover:text-button-color transition-all ease-in-out duration-300 cursor-pointer'>
                     <BsInstagram/>
                 </a>
-                <a className='hover:text-button-color transition-all ease-in-out duration-300 cursor-pointer'>
+                <a href='https://www.linkedin.com/in/shubham-tiwari-966223253/'  className='hover:text-button-color transition-all ease-in-out duration-300 cursor-pointer'>
                     <BsLinkedin/>
                 </a>
                 <a className='hover:text-button-color transition-all ease-in-out duration-300 cursor-pointer'>
